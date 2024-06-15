@@ -25,7 +25,7 @@ the following piece of json
 ```
 
 - Once you have added your dp config as listed above,got to the src folder from your terminal and execute `npx sequelize db:create`and then execute `npx sequelize db:migrate` for syncing.
-```
+
 
 ## DB Design
 
