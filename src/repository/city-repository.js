@@ -1,23 +1,49 @@
 const { City } = require('../models/index');
 
 class CityReository{
-    async createCity({ name }){
+    async createCity( {name} ) { // parameter will be an object like name:sunny ,{}this will get you sunnny isse use krke destructuring the object
         try{
-            const city=await City.create({ name });
+            const city = await City.create({ name });
             return city;
         } catch (error){
+            console.log("something went wrong in repository");
             throw {error};
         }
     }
 
-    async deleteCity({ cityId }){
+    async deleteCity(cityId) {
         try{
-            await City.destroy({
+           await City.destroy({
+            where: {
+                id: cityId
+            }
+           });
+        } catch (error){
+            console.log("something went wrong in repository");
+            throw {error};
+        }
+    }
+
+    async updateCity(cityId , data) {
+        try{
+            const city = await City.update(data, {
                 where: {
-                    id:cityId
+                    id: cityId
                 }
             });
+            return city;
         } catch (error){
+            console.log("something went wrong in repository");
+            throw {error};
+        }
+    }
+
+    async getCity(cityId) {
+        try{
+            const city = await City.findByPk(cityId);
+            return city;
+        } catch (error){
+            console.log("something went wrong in repository");
             throw {error};
         }
     }
