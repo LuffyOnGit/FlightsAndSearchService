@@ -1,6 +1,6 @@
 const { City } = require('../models/index');
 
-class CityReository{
+class CityRepository{
     async createCity( {name} ) { // parameter will be an object like name:sunny ,{}this will get you sunnny isse use krke destructuring the object
         try{
             const city = await City.create({ name });
@@ -13,11 +13,11 @@ class CityReository{
 
     async deleteCity(cityId) {
         try{
-           await City.destroy({
-            where: {
-                id: cityId
-            }
-           });
+            await City.destroy({
+                    where: {
+                        id: cityId
+                    }
+            });
         } catch (error){
             console.log("something went wrong in repository");
             throw {error};
