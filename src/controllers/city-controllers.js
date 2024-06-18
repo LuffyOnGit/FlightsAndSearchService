@@ -73,7 +73,7 @@ const get = async (req, res) => {
     try {
         const response = await cityService.getCity(req.params.id);
             return res.status(200).json({
-                data: reponse,
+                data: response,
                 success: true,
                 message: 'City fetched successfully',
                 err: {}
