@@ -1,3 +1,3 @@
-module.expport({
+module.exports = ({
     CityRepository:require('./city-repository')
-})
+});
