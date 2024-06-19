@@ -1,4 +1,7 @@
+const { Op } = require('sequelize');
+
 const { City } = require('../models/index');
+
 
 class CityRepository{
     async createCity( {name} ) { // parameter will be an object like name:sunny ,{}this will get you sunnny isse use krke destructuring the object
@@ -53,8 +56,18 @@ class CityRepository{
         }
     }
 
-    async getAllCities() {
+    async getAllCities( filter ) {  //filter can be empty then fetch all cities 
         try {
+            if(filter.name) {
+                const cities = await City.findAll({
+                    where: {
+                        name : {
+                            [Op.startsWith]: filter.name
+                        }
+                    }
+                });
+                return cities;
+            }
             const cities = await City.findAll();
             return cities;
         } catch (error) {

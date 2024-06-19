@@ -45,9 +45,9 @@ class CityService {
         }
     }
 
-    async getAllCities() {
+    async getAllCities(filter) {
         try {
-            const cities = await this.cityRepository.getAllCities();
+            const cities = await this.cityRepository.getAllCities({ name: filter.name }); // user se jo query aarhi hai vo ({name:some name}) ko hi pass krega aage
             return cities;
         } catch (error) {
             console.log("something went wrong at service layer");
