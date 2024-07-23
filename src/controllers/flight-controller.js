@@ -74,9 +74,12 @@ const get = async (req, res) => {
     }
 }
     
+
+// same for this after booking service came from repo-> service-> to controller 
+// next to routes
 const update = async (req, res) => {
     try {
-        const response = await flightService.updateFlight(req.params.id, req.body);
+        const response = await flightService.updateFlights(req.params.id, req.body);
         return res.status(SuccessCodes.OK).json({
             data: response,
             success: true,

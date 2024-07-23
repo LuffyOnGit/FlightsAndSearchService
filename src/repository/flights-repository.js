@@ -68,6 +68,10 @@ class FlightRepository {
         }
     }
     
+    //this flight function is updating now after booking service when we bookedSeats
+    // and we want to update noOfseats as some seats are booked thats the reason for this and 
+    // i wrote it before due to copy paste from github after this we go to flight service
+    // as obvious flow 
     async updateFlights(flightId, data) {
         try {
             await Flights.update(data, {

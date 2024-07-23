@@ -44,7 +44,10 @@ class FlightService {
         }
     }
 
-    async updateFlight(flightId, data) {
+    // this update flight at service is written after update flight after booking service 
+    // smjh lio ye git p pehle push hogya 
+    // after this to controller the whole flow
+    async updateFlights(flightId, data) {
         try {
             const response = await this.flightrepository.updateFlights(flightId, data);
             return response;
